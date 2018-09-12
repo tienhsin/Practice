@@ -50,6 +50,11 @@ int main(){
     for(int i=0;i<A1.size();i++){
         cout<<A1[i]<<endl;
     }
+    
+    vector<string> A2=A.findMissingWords("", "");
+    for(int i=0;i<A2.size();i++){
+        cout<<A2[i]<<endl;
+    }
 
 }
 

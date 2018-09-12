@@ -1,3 +1,16 @@
+/* 
+ * 1. Sort the words array from shortest to longest. 
+ * 2. Define a map to record words with its longest chain.
+ * 3. Iterative through the word array, set the longest chain as one as default.
+ * 4. Iterative through the word and remove one character from it.  
+ * 5. Check if the word after one character removed has been recorded into map. 
+ *      If yes, which means we can find the one character removed word from the original array.
+ *      Set longest chain of current word to max(m[word], m[_word]+1);
+ *      If no, move on to remove another character from the word.
+ * 6. Update maxLen after we finish checking a word. 
+ */
+
+
 #include<iostream>
 #include<vector>
 #include<string>
