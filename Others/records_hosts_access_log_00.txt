@@ -1,0 +1,4 @@
+burger.letters.com 1
+abc.com 3
+aaaccc.com 2
+abcdefg.com 1
