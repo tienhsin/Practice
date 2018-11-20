@@ -18,11 +18,12 @@ int FindMedian(vector<int>& in, int N){
 
         for(int n:in){
             if(m>n) cnt++;
-            else if(n!=m)
+            else
                 next=min(next,n);
         }
         
         //cout<<"m:"<<m<<" cnt:"<<cnt<<endl;
+        //cout<<"next:"<<next<<endl;
 
         if(cnt==N-1){
             return next;
@@ -33,21 +34,23 @@ int FindMedian(vector<int>& in, int N){
         }
     }
 
-    return 0;
+    return lower;
 }
 
 int main(){
-    vector<int> in{1,2,3,4,5,10,88,100,0,7,1110,6,7,6};
-    
+    vector<int> in{1,2,3,4,5}; 
     int len=in.size();
     if(len%2==1){
-        cout<<FindMedian(in, len/2)<<endl;
+        cout<<FindMedian(in, len/2+1)<<endl;
     }else{
-        int a=FindMedian(in, len/2);
-        int b=FindMedian(in, len/2-1);
+        int a=FindMedian(in, len/2+1);
+        int b=FindMedian(in, len/2);
         cout<<a<<endl;
         cout<<b<<endl;
         cout<< double(a+b)/2<<endl;
     }
 
+    sort(in.begin(), in.end());
+    for(int n:in)
+        cout<<n<<" ";
 }
