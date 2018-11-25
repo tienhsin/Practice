@@ -31,24 +31,38 @@ void waterPour(vector<int> &in, int water, int pourAt){
         while( left>-1 && (in[left]+w[left] <= in[left+1]+w[left+1]) ){
             left--;
         }
+        /*
         if(left<pourAt-1){
             w[left+1]++;
             water--;
             continue;
         }
+        */
 
         //find right
         int right=pourAt+1;
         while( right<in.size() && (in[right]+w[right] <= in[right-1]+w[right-1]) ){
             right++;
         }
+        /*
         if(right>pourAt+1){
             w[right-1]++;
             water--;
             continue;
         }
+        */
+        
+        int wall=min(in[0], in[n-1]);
+        int leftH=in[left+1]+w[left+1];
+        int rightH=in[right-1]+w[right-1];
 
-        w[pourAt]++;
+        if(leftH<=rightH && leftH<wall){
+            w[left+1]++;
+        }else if(rightH<wall){
+            w[right-1]++;
+        }
+
+        //w[pourAt]++;
         water--;
 
     }
@@ -85,9 +99,9 @@ void print(vector<int> in, vector<int> w){
 }
 
 int main(){
-    vector<int> in{4,1,2,1,1,3};
-    int water=2;
-    int pourAt=4;
+    vector<int> in{4,1,1,0,0,3};
+    int water=30;
+    int pourAt=3;
 
     waterPour(in, water, pourAt);
 
